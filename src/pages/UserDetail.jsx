@@ -20,12 +20,31 @@ export default function UserDetail() {
     });
   }, [id]);
 
-  if (!user)
+  if (!loading && !user) {
     return (
-      <div className="flex items-center justify-center w-full max-w-6xl h-screen">
-        <h1>User not found!</h1>
-      </div>
+      <>
+        <BackgroundGlow />
+        <Navbar />
+
+        <div className="max-w-7xl mx-auto px-4 py-6">
+          <Breadcrumb />
+          <div
+            className="p-6 md:p-8 rounded-2xl
+                       bg-white/10 dark:bg-white/5
+                       backdrop-blur-xl
+                       border border-white/20 dark:border-white/10
+                       shadow-[0_8px_32px_rgba(0,0,0,0.25)]
+                       transition"
+          >
+            <h2 className="text-2xl font-semibold">User Not Found</h2>
+            <p className="text-sm text-slate-500">
+              The user you are looking for does not exist.
+            </p>
+          </div>
+        </div>
+      </>
     );
+  }
 
   return (
     <>
