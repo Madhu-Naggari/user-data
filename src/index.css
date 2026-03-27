@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ✅ Base styles */
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  @apply min-h-screen
+         bg-gradient-to-br
+         from-indigo-100 via-white to-slate-100
+         dark:from-slate-950 dark:via-slate-900 dark:to-black
+         text-slate-700 dark:text-slate-300
+         transition-colors duration-300;
+}
